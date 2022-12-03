@@ -3,14 +3,12 @@ let playerScore = 0;
 let computerScore = 0;
 
 let computerPlay = () => {
-  let randomSelectedChoice =
-    choices[Math.floor(Math.random() * choices.length)];
-  return randomSelectedChoice;
+  return choices[Math.floor(Math.random() * choices.length)];
 };
 
 let playRound = (playerSelection, computerSelection) => {
   if (playerSelection) {
-    let choice1 = choices.indexOf(playerSelection.toLowerCase());
+    let choice1 = choices.indexOf(playerSelection);
     let choice2 = choices.indexOf(computerSelection);
 
     if (choice2 == 0 && choice1 == choices.length - 1) {
@@ -36,11 +34,8 @@ let game = () => {
   for (let x = 0; x < 5; x++) {
     let playerSelection = null;
     do {
-      playerSelection = prompt("Enter Rock, Paper or Scissors");
-    } while (
-      !playerSelection ||
-      !choices.includes(playerSelection.toLowerCase())
-    );
+      playerSelection = prompt("Enter Rock, Paper or Scissors").toLowerCase();
+    } while (!playerSelection || !choices.includes(playerSelection));
 
     let computerSelection = computerPlay();
     let round = playRound(playerSelection, computerSelection);
@@ -49,9 +44,13 @@ let game = () => {
   }
 
   if (playerScore < computerScore) {
-    console.log("You lose the game!!");
+    console.log(
+      `You lose the game!! the result is: ${playerScore}/${computerScore}`
+    );
   } else {
-    console.log("You won the game!!");
+    console.log(
+      `You won the game!! the result is: ${playerScore}/${computerScore}`
+    );
   }
 };
 
