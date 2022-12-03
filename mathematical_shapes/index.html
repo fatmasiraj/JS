@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Mathamatical Shapes</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+    <script>
+      let calculateSquareDiagonal = (length) => {
+        return length * Math.sqrt(2);
+      };
+
+      console.log(
+        "The diagonal of a square where the length of each side is 9: ",
+        calculateSquareDiagonal(9)
+      );
+
+      let calculateTriangleArea = (side1, side2, side3) => {
+        let s = (side1 + side2 + side3) / 2;
+        return Math.sqrt(s * (s - side1) * (s - side2) * (s - side3));
+      };
+
+      console.log(
+        "The area of a triangle where lengths of the three of its sides are 5, 6 and 7: ",
+        calculateTriangleArea(5, 6, 7)
+      );
+
+      const PI = 3.14159265359;
+
+      let calculateCircleArea = (radius) => {
+        return PI * radius * radius;
+      };
+
+      let calculateCircleCircumference = (radius) => {
+        return 2 * PI * radius;
+      };
+
+      console.log(
+        "The circumference of a circle whose radius is 4: ",
+        calculateCircleCircumference(4)
+      );
+
+      console.log(
+        "The surface area of a circle whose radius is 4: ",
+        calculateCircleArea(4)
+      );
+    </script>
+  </body>
+</html>
